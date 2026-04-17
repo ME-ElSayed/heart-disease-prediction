@@ -11,9 +11,9 @@ import 'package:heart_disease_prediction/features/prediction/presentation/cubits
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_drop_down_field.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_segmented_control.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_switch_field.dart';
+import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/exercise_induced_angina_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/fasting_blood_sugar_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/major_vessel_slider.dart';
-import 'package:showcaseview/showcaseview.dart';
 
 class CategoricalDataSection extends StatelessWidget {
   final HealthInputFormState formState;
@@ -99,17 +99,8 @@ class CategoricalDataSection extends StatelessWidget {
         ),
         SizedBox(height: 12.h),
 
-        Showcase(
-          key: showcaseKeys.exang,
-          title: '🏃 Exercise-Induced Angina',
-          description:
-              'Do you get chest pain or tightness during physical activity?\n• ON = Yes\n• OFF = No',
-          tooltipBackgroundColor: Colors.purple,
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+        ExerciseInducedAnginaShowcase(
+          excerciseInducedAnginaKey: showcaseKeys.exang,
           child: AppSwitchField(
             label: 'Exercise-Induced Angina',
             subtitle: 'Chest pain during exercise?',
