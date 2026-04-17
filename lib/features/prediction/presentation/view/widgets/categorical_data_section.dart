@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/chest_pain_showcase.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/resting_ecg_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_drop_down_field.dart';
@@ -25,20 +27,8 @@ class CategoricalDataSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Showcase(
-          key: showcaseKeys.chestPain,
-          title: '💢 Chest Pain Type',
-          description:
-              '• Typical Angina — chest pain from reduced blood flow\n'
-              '• Atypical Angina — chest pain, not classic pattern\n'
-              '• Non-Anginal — unrelated to heart\n'
-              '• Asymptomatic — no chest pain at all',
-          tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+        ChestPainShowcase(
+          chestPainKey: showcaseKeys.chestPain,
           child: AppDropdownField<String>(
             label: 'Chest Pain Type',
             value: formState.selectedCp,
@@ -54,19 +44,8 @@ class CategoricalDataSection extends StatelessWidget {
         ),
         SizedBox(height: 16.h),
 
-        Showcase(
-          key: showcaseKeys.restingEcg,
-          title: '📊 Resting ECG',
-          description:
-              '• Normal — no abnormalities\n'
-              '• ST-T Abnormality — possible ischemia\n'
-              '• LV Hypertrophy — enlarged left ventricle\n\nFound in your ECG report.',
-          tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+        RestingEcgShowcase(
+          restingEcgKey: showcaseKeys.restingEcg,
           child: AppDropdownField<String>(
             label: 'Resting ECG Results',
             value: formState.selectedRestecg,
