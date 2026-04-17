@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/di/dependency_injection.dart';
 import 'package:heart_disease_prediction/core/routing/app_router.dart';
@@ -7,6 +8,7 @@ import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+   await dotenv.load(fileName: ".env");
   await setupServiceLocator();
 
   SystemChrome.setSystemUIOverlayStyle(

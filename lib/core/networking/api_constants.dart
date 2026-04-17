@@ -1,7 +1,8 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class ApiConstants {
   ApiConstants._();
 
-  static const String baseUrl =
-      'https://heart-disease-prediction-8e19.onrender.com';
+  static final String baseUrl = (dotenv.env['BASE_URL'] ?? '').trim();
   static const String predictEndpoint = '/api/predict/';
 }
