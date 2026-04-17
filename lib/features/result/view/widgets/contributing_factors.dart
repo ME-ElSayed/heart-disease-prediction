@@ -2,24 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/core/utils/app_styles.dart';
-import 'package:heart_disease_prediction/features/prediction/data/model/prediction_input_data.dart';
+import 'package:heart_disease_prediction/features/prediction/data/model/top_features.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/factor_bar.dart';
 
-class ContributingFactors extends StatefulWidget {
-  final PredictionInputData inputData;
-  const ContributingFactors({super.key, required this.inputData});
+class ContributingFactors extends StatelessWidget {
+  final List<TopFeature> topFeatures;
 
-  @override
-  State<ContributingFactors> createState() => _ContributingFactorsState();
-}
+  const ContributingFactors({super.key, required this.topFeatures});
 
-class _ContributingFactorsState extends State<ContributingFactors> {
   @override
   Widget build(BuildContext context) {
-    final int bp = widget.inputData.trestbps;
-    final int chol = widget.inputData.chol;
-    final int hr = widget.inputData.thalch;
-    final double oldpeak = widget.inputData.oldpeak;
+    // Normalise bar widths relative to the largest absolute impact.
+    final maxImpact = topFeatures
+        .map((f) => f.impact.abs())
+        .fold(0.0, (a, b) => a > b ? a : b);
+
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
@@ -61,38 +58,26 @@ class _ContributingFactorsState extends State<ContributingFactors> {
             ],
           ),
           SizedBox(height: 20.h),
-          FactorBar(
-            label: 'Blood Pressure',
-            value: '$bp mmHg',
-            percentage: (bp / 200).clamp(0.0, 1.0),
-            color: bp > 140 ? AppColors.tertiary : AppColors.primary,
-            icon: Icons.speed_rounded,
-          ),
-          FactorBar(
-            label: 'Cholesterol',
-            value: '$chol mg/dl',
-            percentage: (chol / 400).clamp(0.0, 1.0),
-            color: chol > 240 ? AppColors.tertiary : AppColors.warningAmber,
-            icon: Icons.water_drop_rounded,
-          ),
-          FactorBar(
-            label: 'Max Heart Rate',
-            value: '$hr bpm',
-            percentage: (hr / 220).clamp(0.0, 1.0),
-            color: AppColors.secondary,
-            icon: Icons.favorite_rounded,
-          ),
-          FactorBar(
-            label: 'ST Depression',
-            value: '${oldpeak.toStringAsFixed(1)} mm',
-            percentage: (oldpeak / 6).clamp(0.0, 1.0),
-            color: oldpeak > 2 ? AppColors.tertiary : AppColors.successGreen,
-            icon: Icons.show_chart_rounded,
-          ),
+          ...topFeatures.map((feature) {
+            final isRiskIncreasing = feature.impact > 0;
+            final percentage = maxImpact == 0
+                ? 0.0
+                : (feature.impact.abs() / maxImpact);
+            final color = isRiskIncreasing
+                ? AppColors
+                      .tertiary // raises risk  → warning colour
+                : AppColors.primary; // lowers risk  → safe colour
+
+            return FactorBar(
+              label: feature.label,
+              value: isRiskIncreasing ? '▲ risk' : '▼ risk',
+              percentage: percentage.clamp(0.0, 1.0),
+              color: color,
+              icon: feature.icon,
+            );
+          }),
         ],
       ),
     );
   }
 }
-
-

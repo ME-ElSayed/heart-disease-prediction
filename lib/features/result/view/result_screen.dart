@@ -45,7 +45,7 @@ class ResultScreen extends StatelessWidget {
 
                     SizedBox(height: 16.h),
 
-                    ContributingFactors(inputData: inputData),
+                    ContributingFactors(topFeatures: response.topFeatures),
 
                     SizedBox(height: 16.h),
 
