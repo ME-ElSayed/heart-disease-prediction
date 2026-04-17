@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/chest_pain_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/resting_ecg_showcase.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/st_slope_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_drop_down_field.dart';
@@ -56,20 +57,8 @@ class CategoricalDataSection extends StatelessWidget {
         ),
         SizedBox(height: 16.h),
 
-        Showcase(
-          key: showcaseKeys.stSlope,
-          title: '📈 ST Slope',
-          description:
-              'Shape of the ST segment during peak exercise:\n'
-              '• Upsloping — generally favorable\n'
-              '• Flat — may indicate ischemia\n'
-              '• Downsloping — higher risk indicator',
-          tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+        StSlopeShowcase(
+          stSlopeKey: showcaseKeys.stSlope,
           child: AppSegmentedControl(
             label: 'ST Slope',
             options: const ['upsloping', 'flat', 'downsloping'],
