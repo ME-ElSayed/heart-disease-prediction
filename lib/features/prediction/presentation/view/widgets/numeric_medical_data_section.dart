@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/app_validator.dart';
+import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/input_field.dart';
 import 'package:showcaseview/showcaseview.dart';
 
@@ -9,21 +10,15 @@ class NumericMedicalDataSection extends StatelessWidget {
   final TextEditingController cholController;
   final TextEditingController heartRateController;
   final TextEditingController oldpeakController;
-  final GlobalKey bpKey;
-  final GlobalKey cholKey;
-  final GlobalKey heartRateKey;
-  final GlobalKey stDepressionKey;
+  final FormShowcaseKeys showcaseKeys;
 
   const NumericMedicalDataSection({
     super.key,
     required this.bpController,
     required this.cholController,
     required this.heartRateController,
-    required this.oldpeakController,
-    required this.bpKey,
-    required this.cholKey,
-    required this.heartRateKey,
-    required this.stDepressionKey,
+    required this.oldpeakController, required this.showcaseKeys,
+   
   });
 
   @override
@@ -34,7 +29,7 @@ class NumericMedicalDataSection extends StatelessWidget {
           children: [
             Expanded(
               child: Showcase(
-                key: bpKey,
+                key:showcaseKeys.restingBp,
                 title: '🩺 Resting Blood Pressure',
                 description:
                     'Measured in mmHg at rest.\n• Normal: 90–120\n• High: above 130',
@@ -60,7 +55,7 @@ class NumericMedicalDataSection extends StatelessWidget {
             SizedBox(width: 12.w),
             Expanded(
               child: Showcase(
-                key: cholKey,
+                key: showcaseKeys.cholesterol,
                 title: '🧪 Cholesterol',
                 description:
                     'Serum cholesterol in mg/dl.\n• Normal: < 200\n• Borderline: 200–239\n• High: ≥ 240',
@@ -90,7 +85,7 @@ class NumericMedicalDataSection extends StatelessWidget {
           children: [
             Expanded(
               child: Showcase(
-                key: heartRateKey,
+                key: showcaseKeys.maxHeartRate,
                 title: '💓 Max Heart Rate',
                 description:
                     'Highest heart rate during exercise.\n• Typical range: 60–202 bpm\n• Formula: 220 − your age',
@@ -116,7 +111,7 @@ class NumericMedicalDataSection extends StatelessWidget {
             SizedBox(width: 12.w),
             Expanded(
               child: Showcase(
-                key: stDepressionKey,
+                key: showcaseKeys.stDepression,
                 title: '📉 ST Depression',
                 description:
                     'ST segment drop on ECG during exercise vs. rest.\n• Normal: 0.0\n• Abnormal: > 1.0\nFound in your ECG report.',

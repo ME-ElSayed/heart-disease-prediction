@@ -9,23 +9,22 @@ import 'package:heart_disease_prediction/features/prediction/presentation/view/w
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/major_vessel_slider.dart';
 import 'package:showcaseview/showcaseview.dart';
 
-class CategoricalMedicalDataSection extends StatelessWidget {
+class CategoricalDataSection extends StatelessWidget {
   final HealthInputFormState formState;
   final HealthInputCubit cubit;
-  final FormShowcaseKeys showcaseKeys;   // 👈 add
+ final FormShowcaseKeys showcaseKeys;
 
-  const CategoricalMedicalDataSection({
+  const CategoricalDataSection({
     super.key,
     required this.formState,
-    required this.cubit,
-    required this.showcaseKeys,
+    required this.cubit, required this.showcaseKeys, 
+    
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-
         Showcase(
           key: showcaseKeys.chestPain,
           title: '💢 Chest Pain Type',
@@ -35,12 +34,20 @@ class CategoricalMedicalDataSection extends StatelessWidget {
               '• Non-Anginal — unrelated to heart\n'
               '• Asymptomatic — no chest pain at all',
           tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
           descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
           child: AppDropdownField<String>(
             label: 'Chest Pain Type',
             value: formState.selectedCp,
-            items: const ['typical angina', 'atypical angina', 'non-anginal', 'asymptomatic'],
+            items: const [
+              'typical angina',
+              'atypical angina',
+              'non-anginal',
+              'asymptomatic',
+            ],
             itemLabel: (item) => item[0].toUpperCase() + item.substring(1),
             onChanged: cubit.updateCp,
           ),
@@ -55,7 +62,10 @@ class CategoricalMedicalDataSection extends StatelessWidget {
               '• ST-T Abnormality — possible ischemia\n'
               '• LV Hypertrophy — enlarged left ventricle\n\nFound in your ECG report.',
           tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
           descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
           child: AppDropdownField<String>(
             label: 'Resting ECG Results',
@@ -76,7 +86,10 @@ class CategoricalMedicalDataSection extends StatelessWidget {
               '• Flat — may indicate ischemia\n'
               '• Downsloping — higher risk indicator',
           tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
           descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
           child: AppSegmentedControl(
             label: 'ST Slope',
@@ -96,7 +109,10 @@ class CategoricalMedicalDataSection extends StatelessWidget {
               '• Fixed Defect — permanent damage\n'
               '• Reversible Defect — stress-induced, can recover',
           tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
           descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
           child: AppDropdownField<String>(
             label: 'Thalassemia',
@@ -111,9 +127,13 @@ class CategoricalMedicalDataSection extends StatelessWidget {
         Showcase(
           key: showcaseKeys.vessels,
           title: '🫀 Major Vessels',
-          description: 'Number of major coronary vessels visible on fluoroscopy (0–3).\n• 0 = no blockage\n• 3 = all vessels affected',
+          description:
+              'Number of major coronary vessels visible on fluoroscopy (0–3).\n• 0 = no blockage\n• 3 = all vessels affected',
           tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
           descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
           child: MajorVesselsSlider(formState: formState, cubit: cubit),
         ),
@@ -122,9 +142,13 @@ class CategoricalMedicalDataSection extends StatelessWidget {
         Showcase(
           key: showcaseKeys.fbs,
           title: '🩸 Fasting Blood Sugar',
-          description: 'Is your blood sugar > 120 mg/dl after fasting 8+ hours?\n• ON = Yes (may indicate diabetes)\n• OFF = No',
+          description:
+              'Is your blood sugar > 120 mg/dl after fasting 8+ hours?\n• ON = Yes (may indicate diabetes)\n• OFF = No',
           tooltipBackgroundColor: Colors.purple,
-          titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
           descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
           child: AppSwitchField(
             label: 'Fasting Blood Sugar > 120 mg/dl',
@@ -138,9 +162,13 @@ class CategoricalMedicalDataSection extends StatelessWidget {
         Showcase(
           key: showcaseKeys.exang,
           title: '🏃 Exercise-Induced Angina',
-          description: 'Do you get chest pain or tightness during physical activity?\n• ON = Yes\n• OFF = No',
+          description:
+              'Do you get chest pain or tightness during physical activity?\n• ON = Yes\n• OFF = No',
           tooltipBackgroundColor: Colors.purple,
-          titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          titleTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
           descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
           child: AppSwitchField(
             label: 'Exercise-Induced Angina',

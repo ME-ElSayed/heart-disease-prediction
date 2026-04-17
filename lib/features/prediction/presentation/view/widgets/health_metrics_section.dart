@@ -4,7 +4,7 @@ import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
-import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/Categorical_medical_data_section.dart';
+import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/categorical_data_section.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/numeric_medical_data_section.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/section_header.dart';
 
@@ -49,17 +49,15 @@ class HealthMetricsSection extends StatelessWidget {
           SectionHeader(),
           SizedBox(height: 20.h),
           NumericMedicalDataSection(
-            heartRateKey: showcaseKeys.maxHeartRate,
-            stDepressionKey: showcaseKeys.stDepression,
-            cholKey: showcaseKeys.cholesterol,
-            bpKey: showcaseKeys.restingBp,
+            showcaseKeys: showcaseKeys,
             bpController: bpController,
             cholController: cholController,
             heartRateController: heartRateController,
             oldpeakController: oldpeakController,
           ),
           SizedBox(height: 16.h),
-          CategoricalMedicalDataSection(formState: formState, cubit: cubit),
+          CategoricalDataSection(formState: formState, cubit: cubit, showcaseKeys: showcaseKeys)
+        
         ],
       ),
     );
