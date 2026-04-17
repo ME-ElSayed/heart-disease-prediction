@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/app_validator.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/cholestrol_showcase.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/max_heart_rate_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/resting_blood_pressure_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/input_field.dart';
 import 'package:showcaseview/showcaseview.dart';
@@ -43,20 +45,8 @@ class NumericMedicalDataSection extends StatelessWidget {
             ),
             SizedBox(width: 12.w),
             Expanded(
-              child: Showcase(
-                key: showcaseKeys.cholesterol,
-                title: '🧪 Cholesterol',
-                description:
-                    'Serum cholesterol in mg/dl.\n• Normal: < 200\n• Borderline: 200–239\n• High: ≥ 240',
-                tooltipBackgroundColor: Colors.teal,
-                titleTextStyle: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-                descTextStyle: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 13,
-                ),
+              child: CholestrolShowcase(
+                cholesterolKey: showcaseKeys.cholesterol,
                 child: AppInputField(
                   label: 'Cholesterol',
                   hint: '200',
@@ -73,20 +63,8 @@ class NumericMedicalDataSection extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: Showcase(
-                key: showcaseKeys.maxHeartRate,
-                title: '💓 Max Heart Rate',
-                description:
-                    'Highest heart rate during exercise.\n• Typical range: 60–202 bpm\n• Formula: 220 − your age',
-                tooltipBackgroundColor: Colors.teal,
-                titleTextStyle: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-                descTextStyle: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 13,
-                ),
+              child: MaxHeartRateShowcase(
+                maxHeartRateKey: showcaseKeys.maxHeartRate,
                 child: AppInputField(
                   label: 'Max Heart Rate',
                   hint: '150',
