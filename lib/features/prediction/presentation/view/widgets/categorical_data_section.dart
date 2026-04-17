@@ -4,6 +4,7 @@ import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/chest_pain_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/resting_ecg_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/st_slope_showcase.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/thalassemia_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_drop_down_field.dart';
@@ -68,28 +69,15 @@ class CategoricalDataSection extends StatelessWidget {
         ),
         SizedBox(height: 16.h),
 
-        Showcase(
-          key: showcaseKeys.thal,
-          title: '🧬 Thalassemia',
-          description:
-              'Blood disorder affecting hemoglobin:\n'
-              '• Normal — no defect\n'
-              '• Fixed Defect — permanent damage\n'
-              '• Reversible Defect — stress-induced, can recover',
-          tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+        ThalassemiaShowcase(
+          thalKey: showcaseKeys.thal,
           child: AppDropdownField<String>(
             label: 'Thalassemia',
             value: formState.selectedThal,
             items: const ['normal', 'fixed defect', 'reversable defect'],
             itemLabel: (item) => item[0].toUpperCase() + item.substring(1),
             onChanged: cubit.updateThal,
-          ),
-        ),
+        )),
         SizedBox(height: 16.h),
 
         Showcase(
