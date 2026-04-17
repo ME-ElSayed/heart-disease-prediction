@@ -16,8 +16,8 @@ class SexShowCase extends StatelessWidget {
       description:
           'Select your biological sex.\nThis affects heart disease risk calculations.',
       tooltipBackgroundColor: AppColors.primary,
-      titleTextStyle: TextStyles.font24BlackBold,
-      descTextStyle: TextStyles.font20BlackSemiBold,
+      titleTextStyle: TextStyles.font18BlackSemiBold,
+      descTextStyle: TextStyles.font16BlackSemiBold,
       child: child,
     );
   }

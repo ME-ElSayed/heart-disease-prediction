@@ -5,7 +5,11 @@ import 'package:showcaseview/showcaseview.dart';
 class StDepressionShowcase extends StatelessWidget {
   final GlobalKey stDepressionKey;
   final Widget child;
-  const StDepressionShowcase({super.key, required this.stDepressionKey, required this.child});
+  const StDepressionShowcase({
+    super.key,
+    required this.stDepressionKey,
+    required this.child,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +19,9 @@ class StDepressionShowcase extends StatelessWidget {
       description:
           'ST segment drop on ECG during exercise vs. rest.\n• Normal: 0.0\n• Abnormal: > 1.0\nFound in your ECG report.',
       tooltipBackgroundColor: Colors.teal,
-       titleTextStyle: TextStyles.font24BlackBold,
-            descTextStyle: TextStyles.font20BlackSemiBold,
-       child: child,
+      titleTextStyle: TextStyles.font18BlackSemiBold,
+      descTextStyle: TextStyles.font16BlackSemiBold,
+      child: child,
     );
-   
   }
 }

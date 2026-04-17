@@ -15,8 +15,8 @@ class AgeShowcase extends StatelessWidget {
             title: ' Age',
             description: 'Enter your age in years.\nValid range: 1 – 120.',
             tooltipBackgroundColor: AppColors.primary,
-            titleTextStyle: TextStyles.font24BlackBold,
-            descTextStyle: TextStyles.font20BlackSemiBold,
+            titleTextStyle: TextStyles.font18BlackSemiBold,
+            descTextStyle: TextStyles.font16BlackSemiBold,
             child:child);
   }
 }

@@ -22,8 +22,8 @@ class ChestPainShowcase extends StatelessWidget {
           '• Non-Anginal — unrelated to heart\n'
           '• Asymptomatic — no chest pain at all',
       tooltipBackgroundColor: Colors.deepOrange,
-      titleTextStyle: TextStyles.font24BlackBold,
-      descTextStyle: TextStyles.font20BlackSemiBold,
+      titleTextStyle: TextStyles.font18BlackSemiBold,
+      descTextStyle: TextStyles.font16BlackSemiBold,
       child: child,
     );
   }

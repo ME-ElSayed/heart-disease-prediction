@@ -19,8 +19,8 @@ class MaxHeartRateShowcase extends StatelessWidget {
       description:
           'Highest heart rate during exercise.\n• Typical range: 60–202 bpm\n• Formula: 220 − your age',
       tooltipBackgroundColor: Colors.teal,
-      titleTextStyle: TextStyles.font24BlackBold,
-      descTextStyle: TextStyles.font20BlackSemiBold,
+      titleTextStyle: TextStyles.font18BlackSemiBold,
+      descTextStyle: TextStyles.font16BlackSemiBold,
       child: child,
     );
   }

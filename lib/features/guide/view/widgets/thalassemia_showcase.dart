@@ -18,8 +18,8 @@ class ThalassemiaShowcase extends StatelessWidget {
               '• Fixed Defect — permanent damage\n'
               '• Reversible Defect — stress-induced, can recover',
           tooltipBackgroundColor: Colors.deepOrange,
-            titleTextStyle: TextStyles.font24BlackBold,
-            descTextStyle: TextStyles.font20BlackSemiBold,
+           titleTextStyle: TextStyles.font18BlackSemiBold,
+            descTextStyle: TextStyles.font16BlackSemiBold,
             child: child,
           );
   }
