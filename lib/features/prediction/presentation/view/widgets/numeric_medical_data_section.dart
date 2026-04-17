@@ -5,8 +5,8 @@ import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/cholestrol_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/max_heart_rate_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/resting_blood_pressure_showcase.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/st_depression_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/input_field.dart';
-import 'package:showcaseview/showcaseview.dart';
 
 class NumericMedicalDataSection extends StatelessWidget {
   final TextEditingController bpController;
@@ -77,20 +77,8 @@ class NumericMedicalDataSection extends StatelessWidget {
             ),
             SizedBox(width: 12.w),
             Expanded(
-              child: Showcase(
-                key: showcaseKeys.stDepression,
-                title: '📉 ST Depression',
-                description:
-                    'ST segment drop on ECG during exercise vs. rest.\n• Normal: 0.0\n• Abnormal: > 1.0\nFound in your ECG report.',
-                tooltipBackgroundColor: Colors.teal,
-                titleTextStyle: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-                descTextStyle: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 13,
-                ),
+              child: StDepressionShowcase(
+                stDepressionKey: showcaseKeys.stDepression,
                 child: AppInputField(
                   label: 'ST Depression',
                   hint: '1.0',
