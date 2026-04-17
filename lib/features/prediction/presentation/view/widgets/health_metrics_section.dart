@@ -13,7 +13,7 @@ class HealthMetricsSection extends StatelessWidget {
   final TextEditingController cholController;
   final TextEditingController heartRateController;
   final TextEditingController oldpeakController;
-
+  final FormShowcaseKeys showcaseKeys;
   final HealthInputFormState formState;
   final HealthInputCubit cubit;
 
@@ -24,7 +24,8 @@ class HealthMetricsSection extends StatelessWidget {
     required this.heartRateController,
     required this.oldpeakController,
     required this.formState,
-    required this.cubit, required FormShowcaseKeys showcaseKeys,
+    required this.cubit,
+    required this.showcaseKeys,
   });
 
   @override
@@ -48,19 +49,19 @@ class HealthMetricsSection extends StatelessWidget {
           SectionHeader(),
           SizedBox(height: 20.h),
           NumericMedicalDataSection(
+            heartRateKey: showcaseKeys.maxHeartRate,
+            stDepressionKey: showcaseKeys.stDepression,
+            cholKey: showcaseKeys.cholesterol,
+            bpKey: showcaseKeys.restingBp,
             bpController: bpController,
             cholController: cholController,
             heartRateController: heartRateController,
             oldpeakController: oldpeakController,
           ),
           SizedBox(height: 16.h),
-           CategoricalMedicalDataSection(formState: formState, cubit: cubit),
-         
+          CategoricalMedicalDataSection(formState: formState, cubit: cubit),
         ],
       ),
     );
   }
 }
-
-
-
