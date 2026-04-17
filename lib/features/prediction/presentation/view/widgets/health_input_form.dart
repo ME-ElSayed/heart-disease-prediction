@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/core/widgets/app_button.dart';
@@ -23,11 +24,11 @@ class _HeathInputFormState extends State<HeathInputForm> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final prefs = await SharedPreferences.getInstance();
+    WidgetsBinding.instance.addPostFrameCallback((_)  {
+      final prefs =  GetIt.instance.get<SharedPreferences>();
       if (!(prefs.getBool('form_guide_seen') ?? false)) {
         ShowCaseWidget.of(context).startShowCase(_keys.allKeys);
-        await prefs.setBool('form_guide_seen', true);
+         prefs.setBool('form_guide_seen', true);
       }
     });
   }
