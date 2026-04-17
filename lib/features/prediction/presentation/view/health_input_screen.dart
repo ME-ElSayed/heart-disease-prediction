@@ -7,6 +7,7 @@ import 'package:heart_disease_prediction/features/prediction/presentation/cubits
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/prediction/prediction_state.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/health_input_form.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/loading_view.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 class HealthInputScreen extends StatelessWidget {
   const HealthInputScreen({super.key});
@@ -30,7 +31,10 @@ class HealthInputScreen extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            const HeathInputForm(),
+            ShowCaseWidget(
+              onFinish: () => debugPrint('Guide finished'),
+              builder: (context) => const HeathInputForm(),
+            ),
 
             if (state is PredictionLoading)
               const LoadingView(), // full screen overlay
