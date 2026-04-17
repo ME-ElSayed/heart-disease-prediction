@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/app_validator.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/age_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_segmented_control.dart';
 import 'package:showcaseview/showcaseview.dart';
 
@@ -11,8 +12,8 @@ class PersonalInfoSection extends StatelessWidget {
   final TextEditingController ageController;
   final String? selectedSex;
   final void Function(String) onSexChanged;
-  final GlobalKey ageKey;   // 👈 add
-  final GlobalKey sexKey;   // 👈 add
+  final GlobalKey ageKey;   //  add
+  final GlobalKey sexKey;   //  add
 
   const PersonalInfoSection({
     super.key,
@@ -46,13 +47,8 @@ class PersonalInfoSection extends StatelessWidget {
           SizedBox(height: 20.h),
 
           //  Age field
-          Showcase(
-            key: ageKey,
-            title: ' Age',
-            description: 'Enter your age in years.\nValid range: 1 – 120.',
-            tooltipBackgroundColor: Colors.indigo,
-            titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-            descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+          AgeShowcase(
+            ageKey: ageKey,
             child: AppInputField(
               label: 'Age',
               hint: 'Enter your age',
@@ -68,7 +64,7 @@ class PersonalInfoSection extends StatelessWidget {
           //  Sex field
           Showcase(
             key: sexKey,
-            title: '⚧ Biological Sex',
+            title: 'Biological Sex',
             description: 'Select your biological sex.\nThis affects heart disease risk calculations.',
             tooltipBackgroundColor: Colors.indigo,
             titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
