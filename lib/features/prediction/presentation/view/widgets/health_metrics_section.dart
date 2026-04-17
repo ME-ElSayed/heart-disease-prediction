@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
-import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/Categorical_medical_data_section.dart';
+import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/categorical_data_section.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/numeric_medical_data_section.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/section_header.dart';
 
@@ -12,7 +13,7 @@ class HealthMetricsSection extends StatelessWidget {
   final TextEditingController cholController;
   final TextEditingController heartRateController;
   final TextEditingController oldpeakController;
-
+  final FormShowcaseKeys showcaseKeys;
   final HealthInputFormState formState;
   final HealthInputCubit cubit;
 
@@ -24,6 +25,7 @@ class HealthMetricsSection extends StatelessWidget {
     required this.oldpeakController,
     required this.formState,
     required this.cubit,
+    required this.showcaseKeys,
   });
 
   @override
@@ -47,19 +49,17 @@ class HealthMetricsSection extends StatelessWidget {
           SectionHeader(),
           SizedBox(height: 20.h),
           NumericMedicalDataSection(
+            showcaseKeys: showcaseKeys,
             bpController: bpController,
             cholController: cholController,
             heartRateController: heartRateController,
             oldpeakController: oldpeakController,
           ),
           SizedBox(height: 16.h),
-           CategoricalMedicalDataSection(formState: formState, cubit: cubit),
-         
+          CategoricalDataSection(formState: formState, cubit: cubit, showcaseKeys: showcaseKeys)
+        
         ],
       ),
     );
   }
 }
-
-
-
