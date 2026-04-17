@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/app_validator.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/resting_blood_pressure_showcase.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/input_field.dart';
 import 'package:showcaseview/showcaseview.dart';
 
@@ -28,20 +29,8 @@ class NumericMedicalDataSection extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: Showcase(
-                key:showcaseKeys.restingBp,
-                title: '🩺 Resting Blood Pressure',
-                description:
-                    'Measured in mmHg at rest.\n• Normal: 90–120\n• High: above 130',
-                tooltipBackgroundColor: Colors.teal,
-                titleTextStyle: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-                descTextStyle: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 13,
-                ),
+              child: RestingBloodPressureShowcase(
+                restingBpKey: showcaseKeys.restingBp,
                 child: AppInputField(
                   label: 'Resting BP',
                   hint: '120',
