@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/core/utils/app_styles.dart';
 import 'package:showcaseview/showcaseview.dart';
 
@@ -14,7 +15,7 @@ class SexShowCase extends StatelessWidget {
       title: 'Biological Sex',
       description:
           'Select your biological sex.\nThis affects heart disease risk calculations.',
-      tooltipBackgroundColor: Colors.indigo,
+      tooltipBackgroundColor: AppColors.primary,
       titleTextStyle: TextStyles.font24BlackBold,
       descTextStyle: TextStyles.font20BlackSemiBold,
       child: child,
