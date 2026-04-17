@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/app_validator.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/age_showcase.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/sex_show_case.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_segmented_control.dart';
-import 'package:showcaseview/showcaseview.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import 'input_field.dart';
@@ -62,13 +62,8 @@ class PersonalInfoSection extends StatelessWidget {
           SizedBox(height: 16.h),
 
           //  Sex field
-          Showcase(
-            key: sexKey,
-            title: 'Biological Sex',
-            description: 'Select your biological sex.\nThis affects heart disease risk calculations.',
-            tooltipBackgroundColor: Colors.indigo,
-            titleTextStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-            descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+          SexShowCase(
+            sexKey: sexKey,
             child: AppSegmentedControl(
               label: 'Sex',
               options: const ['Male', 'Female'],
