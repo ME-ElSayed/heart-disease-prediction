@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/chest_pain_showcase.dart';
+import 'package:heart_disease_prediction/features/guide/view/widgets/major_vessels_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/resting_ecg_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/st_slope_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/thalassemia_showcase.dart';
@@ -80,17 +81,8 @@ class CategoricalDataSection extends StatelessWidget {
         )),
         SizedBox(height: 16.h),
 
-        Showcase(
-          key: showcaseKeys.vessels,
-          title: '🫀 Major Vessels',
-          description:
-              'Number of major coronary vessels visible on fluoroscopy (0–3).\n• 0 = no blockage\n• 3 = all vessels affected',
-          tooltipBackgroundColor: Colors.deepOrange,
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-          descTextStyle: const TextStyle(color: Colors.white70, fontSize: 13),
+        MajorVesselsShowcase(
+          majorVesselsKey: showcaseKeys.vessels,
           child: MajorVesselsSlider(formState: formState, cubit: cubit),
         ),
         SizedBox(height: 16.h),
