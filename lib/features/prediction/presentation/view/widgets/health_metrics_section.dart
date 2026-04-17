@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
@@ -23,7 +24,7 @@ class HealthMetricsSection extends StatelessWidget {
     required this.heartRateController,
     required this.oldpeakController,
     required this.formState,
-    required this.cubit,
+    required this.cubit, required FormShowcaseKeys showcaseKeys,
   });
 
   @override
