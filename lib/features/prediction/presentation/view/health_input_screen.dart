@@ -32,6 +32,7 @@ class HealthInputScreen extends StatelessWidget {
         return Stack(
           children: [
             ShowCaseWidget(
+              enableAutoScroll:true ,
               onFinish: () => debugPrint('Guide finished'),
               builder: (context) => const HeathInputForm(),
             ),
