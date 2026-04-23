@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/core/utils/app_styles.dart';
 
 class AppDropdownField<T> extends StatelessWidget {
@@ -21,24 +20,36 @@ class AppDropdownField<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyles.font12BlackMedium),
+        Text(
+          label,
+          style: TextStyles.font12BlackMedium.copyWith(
+            color: theme.colorScheme.onSurface,
+          ),
+        ),
         SizedBox(height: 8.h),
         Container(
           decoration: BoxDecoration(
-            color: AppColors.surfaceContainerHighest,
+            color: theme.colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(12.r),
           ),
           child: DropdownButtonFormField<T>(
             initialValue: value,
+            style: TextStyles.font14BlackRegular.copyWith(
+              color: theme.colorScheme.onSurface,
+            ),
             items: items
                 .map((item) => DropdownMenuItem<T>(
                       value: item,
                       child: Text(
                         itemLabel(item),
-                        style: TextStyles.font14BlackRegular,
+                        style: TextStyles.font14BlackRegular.copyWith(
+                          color: theme.colorScheme.onSurface,
+                        ),
                       ),
                     ))
                 .toList(),
@@ -50,11 +61,11 @@ class AppDropdownField<T> extends StatelessWidget {
               ),
               border: InputBorder.none,
             ),
-            dropdownColor: AppColors.surfaceContainerLowest,
+            dropdownColor: theme.colorScheme.surfaceContainerLowest,
             borderRadius: BorderRadius.circular(12.r),
             icon: Icon(
               Icons.keyboard_arrow_down_rounded,
-              color: AppColors.onSurfaceVariant,
+              color: theme.colorScheme.onSurfaceVariant,
               size: 22.sp,
             ),
           ),

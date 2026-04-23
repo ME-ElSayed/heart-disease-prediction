@@ -210,7 +210,7 @@ class _DotsLoaderState extends State<_DotsLoader>
       children: List.generate(_dotCount, (i) {
         return AnimatedBuilder(
           animation: _animations[i],
-          builder: (_, __) {
+          builder: (context, child) {
             return Container(
               margin: EdgeInsets.symmetric(horizontal: 5.w),
               width: 8.w,

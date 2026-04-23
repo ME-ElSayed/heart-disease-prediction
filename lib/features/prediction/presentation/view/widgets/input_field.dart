@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class AppInputField extends StatelessWidget {
@@ -26,10 +24,17 @@ class AppInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyles.font12BlackMedium),
+        Text(
+          label,
+          style: TextStyles.font12BlackMedium.copyWith(
+            color: theme.colorScheme.onSurface,
+          ),
+        ),
         SizedBox(height: 8.h),
         TextFormField(
           controller: controller,
@@ -39,51 +44,12 @@ class AppInputField extends StatelessWidget {
           onTapOutside: (event) {
             FocusScope.of(context).unfocus();
           },
-          style: TextStyles.font14BlackRegular,
+          style: TextStyles.font14BlackRegular.copyWith(
+            color: theme.colorScheme.onSurface,
+          ),
           decoration: InputDecoration(
-            errorMaxLines: 2,
-            errorStyle: TextStyles.font12GreyRegular.copyWith(
-              color: AppColors.error,
-            ),
-
             hintText: hint,
-            hintStyle: TextStyles.font14GreyRegular.copyWith(
-              color: AppColors.outline,
-            ),
             suffixText: suffix,
-            suffixStyle: TextStyles.font12GreyRegular,
-            filled: true,
-            fillColor: AppColors.surfaceContainerHighest,
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 16.w,
-              vertical: 14.h,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide.none,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide.none,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide(
-                color: AppColors.primary.withValues(alpha: 0.2),
-                width: 1,
-              ),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide(
-                color: AppColors.error.withValues(alpha: 0.3),
-                width: 1,
-              ),
-            ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: const BorderSide(color: AppColors.error, width: 1),
-            ),
           ),
         ),
       ],

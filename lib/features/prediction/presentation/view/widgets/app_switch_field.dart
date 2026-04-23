@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/core/utils/app_styles.dart';
 
 class AppSwitchField extends StatelessWidget {
@@ -19,10 +18,12 @@ class AppSwitchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerHighest,
+        color: theme.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Row(
@@ -31,22 +32,25 @@ class AppSwitchField extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label, style: TextStyles.font14BlackMedium),
+                Text(
+                  label,
+                  style: TextStyles.font14BlackMedium.copyWith(
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
                 if (subtitle != null) ...[
                   SizedBox(height: 2.h),
-                  Text(subtitle!, style: TextStyles.font12GreyRegular),
+                  Text(
+                    subtitle!,
+                    style: TextStyles.font12GreyRegular.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
                 ],
               ],
             ),
           ),
-          Switch.adaptive(
-            value: value,
-            onChanged: onChanged,
-            activeThumbColor: AppColors.primary,
-            activeTrackColor: AppColors.primaryFixed,
-            inactiveThumbColor: AppColors.outline,
-            inactiveTrackColor: AppColors.surfaceContainerHigh,
-          ),
+          Switch.adaptive(value: value, onChanged: onChanged),
         ],
       ),
     );

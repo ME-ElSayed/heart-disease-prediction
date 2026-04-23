@@ -26,22 +26,18 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     if (isOutlined) {
       return SizedBox(
         width: width ?? double.infinity,
         height: height ?? 56.h,
         child: OutlinedButton(
           onPressed: isLoading ? null : onPressed,
-          style: OutlinedButton.styleFrom(
-            side: const BorderSide(color: AppColors.primary, width: 1.5),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.r),
-            ),
-          ),
           child: Text(
             text,
             style: TextStyles.font16BlackSemiBold.copyWith(
-              color: AppColors.primary,
+              color: theme.colorScheme.primary,
             ),
           ),
         ),
@@ -76,8 +72,8 @@ class AppButton extends StatelessWidget {
               ? SizedBox(
                   height: 24.h,
                   width: 24.w,
-                  child: const CircularProgressIndicator(
-                    color: Colors.white,
+                  child: CircularProgressIndicator(
+                    color: theme.colorScheme.onPrimary,
                     strokeWidth: 2.5,
                   ),
                 )
@@ -86,10 +82,24 @@ class AppButton extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     if (icon != null) ...[
-                      Icon(icon, color: Colors.white, size: 20.sp),
+                      Icon(
+                        icon,
+                        color: theme.colorScheme.onPrimary,
+                        size: 20.sp,
+                      ),
                       SizedBox(width: 8.w),
                     ],
-                    Text(text, style: TextStyles.font16WhiteSemiBold),
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          text,
+                          style: TextStyles.font16WhiteSemiBold.copyWith(
+                            color: theme.colorScheme.onPrimary,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
         ),

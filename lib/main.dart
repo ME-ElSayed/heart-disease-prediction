@@ -4,11 +4,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/di/dependency_injection.dart';
 import 'package:heart_disease_prediction/core/routing/app_router.dart';
-import 'package:heart_disease_prediction/core/utils/app_colors.dart';
+import 'package:heart_disease_prediction/core/theme/theme_data_light.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: ".env");
   await setupServiceLocator();
 
   SystemChrome.setSystemUIOverlayStyle(
@@ -42,15 +42,8 @@ class HeartDiseasePrediction extends StatelessWidget {
           title: 'Heart Check',
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.router,
-          theme: ThemeData(
-            useMaterial3: true,
-            scaffoldBackgroundColor: AppColors.surface,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: AppColors.primary,
-              surface: AppColors.surface,
-            ),
-            splashFactory: InkSparkle.splashFactory,
-          ),
+          
+          theme: getLightTheme(),
         );
       },
     );
