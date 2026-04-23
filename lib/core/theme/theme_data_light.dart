@@ -4,36 +4,37 @@ import 'package:heart_disease_prediction/core/utils/app_colors.dart';
 import 'package:heart_disease_prediction/core/utils/app_styles.dart';
 
 ThemeData getLightTheme() {
-  final colorScheme = ColorScheme.fromSeed(
-    seedColor: AppColors.primary,
-    brightness: Brightness.light,
-  ).copyWith(
-    primary: AppColors.primary,
-    onPrimary: AppColors.onPrimary,
-    primaryContainer: AppColors.primaryFixed,
-    onPrimaryContainer: AppColors.onPrimaryContainer,
-    secondary: AppColors.secondary,
-    onSecondary: AppColors.onSecondary,
-    secondaryContainer: AppColors.secondaryFixed,
-    tertiary: AppColors.tertiary,
-    error: AppColors.error,
-    onError: AppColors.onError,
-    errorContainer: AppColors.errorContainer,
-    onErrorContainer: AppColors.onErrorContainer,
-    surface: AppColors.surface,
-    onSurface: AppColors.onSurface,
-    onSurfaceVariant: AppColors.onSurfaceVariant,
-    outline: AppColors.outline,
-    outlineVariant: AppColors.outlineVariant,
-    inverseSurface: AppColors.inverseSurface,
-    onInverseSurface: AppColors.inverseOnSurface,
-    inversePrimary: AppColors.inversePrimary,
-    surfaceContainerLowest: AppColors.surfaceContainerLowest,
-    surfaceContainerLow: AppColors.surfaceContainerLow,
-    surfaceContainer: AppColors.surfaceContainer,
-    surfaceContainerHigh: AppColors.surfaceContainerHigh,
-    surfaceContainerHighest: AppColors.surfaceContainerHighest,
-  );
+  final colorScheme =
+      ColorScheme.fromSeed(
+        seedColor: AppColors.primary,
+        brightness: Brightness.light,
+      ).copyWith(
+        primary: AppColors.primary,
+        onPrimary: AppColors.onPrimary,
+        primaryContainer: AppColors.primaryFixed,
+        onPrimaryContainer: AppColors.onPrimaryContainer,
+        secondary: AppColors.secondary,
+        onSecondary: AppColors.onSecondary,
+        secondaryContainer: AppColors.secondaryFixed,
+        tertiary: AppColors.tertiary,
+        error: AppColors.error,
+        onError: AppColors.onError,
+        errorContainer: AppColors.errorContainer,
+        onErrorContainer: AppColors.onErrorContainer,
+        surface: AppColors.surface,
+        onSurface: AppColors.onSurface,
+        onSurfaceVariant: AppColors.onSurfaceVariant,
+        outline: AppColors.outline,
+        outlineVariant: AppColors.outlineVariant,
+        inverseSurface: AppColors.inverseSurface,
+        onInverseSurface: AppColors.inverseOnSurface,
+        inversePrimary: AppColors.inversePrimary,
+        surfaceContainerLowest: AppColors.surfaceContainerLowest,
+        surfaceContainerLow: AppColors.surfaceContainerLow,
+        surfaceContainer: AppColors.surfaceContainer,
+        surfaceContainerHigh: AppColors.surfaceContainerHigh,
+        surfaceContainerHighest: AppColors.surfaceContainerHighest,
+      );
 
   return ThemeData(
     useMaterial3: true,
@@ -59,9 +60,7 @@ ThemeData getLightTheme() {
       style: IconButton.styleFrom(
         foregroundColor: AppColors.onSurfaceVariant,
         backgroundColor: AppColors.surfaceContainerLowest,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
 
@@ -74,9 +73,7 @@ ThemeData getLightTheme() {
         disabledForegroundColor: AppColors.inverseOnSurface,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         textStyle: TextStyles.font16WhiteSemiBold,
       ),
     ),
@@ -89,14 +86,9 @@ ThemeData getLightTheme() {
       hintStyle: TextStyles.font14GreyRegular.copyWith(
         color: AppColors.outline,
       ),
-      errorStyle: TextStyles.font12GreyRegular.copyWith(
-        color: AppColors.error,
-      ),
+      errorStyle: TextStyles.font12GreyRegular.copyWith(color: AppColors.error),
       suffixStyle: TextStyles.font12GreyRegular,
-      contentPadding: EdgeInsets.symmetric(
-        horizontal: 16.w,
-        vertical: 14.h,
-      ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.r),
         borderSide: BorderSide.none,
@@ -130,7 +122,7 @@ ThemeData getLightTheme() {
       style: OutlinedButton.styleFrom(
         side: const BorderSide(color: AppColors.primary, width: 1.5),
         foregroundColor: AppColors.primary,
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
         ),
@@ -196,9 +188,7 @@ ThemeData getLightTheme() {
       contentTextStyle: TextStyles.font14BlackRegular.copyWith(
         color: AppColors.inverseOnSurface,
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.r),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
     ),
 
     // Text selection
