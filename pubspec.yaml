@@ -45,6 +45,7 @@ dependencies:
   flutter_native_splash: ^2.4.7
   flutter_dotenv: ^6.0.0
   showcaseview: ^5.0.1
+  hydrated_bloc: ^11.0.0
   
 
 dev_dependencies:
