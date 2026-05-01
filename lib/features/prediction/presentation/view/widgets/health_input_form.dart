@@ -41,13 +41,15 @@ class _HeathInputFormState extends State<HeathInputForm> {
     return Scaffold(
       backgroundColor: colorScheme.surfaceContainerLow,
       appBar: AppBar(
-        surfaceTintColor: Colors.transparent,
+        forceMaterialTransparency: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
         title: Text(
           'Health Input',
           style: TextStyles.font20BlackSemiBold.copyWith(
-            color: colorScheme.onPrimary,
+            color: colorScheme.onSurface,
           ),
         ),
         actions: const [
@@ -70,6 +72,7 @@ class _HeathInputFormState extends State<HeathInputForm> {
                     builder: (context, formState) {
                       return Column(
                         children: [
+                          SizedBox(height: 10.h),
                           PersonalInfoSection(
                             ageController: context
                                 .read<HealthInputCubit>()
