@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:heart_disease_prediction/core/theme/widgets/theme_toggle_button.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/contributing_factors.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/metric_cards.dart';
 
 import '../../../core/routing/routes.dart';
-import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_button.dart';
 import '../../prediction/data/model/predict_response.dart';
 import '../../prediction/data/model/prediction_input_data.dart';
@@ -24,8 +24,19 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.surfaceContainerLow,
+      backgroundColor: colorScheme.surfaceContainerLow,
+      appBar: AppBar(
+        title: const Text('Risk Profile'),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: ThemeToggleButton(),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -39,7 +50,7 @@ class ResultScreen extends StatelessWidget {
                       probability: response.probability,
                       hasHeartDisease: response.hasHeartDisease,
                     ),
-                    SizedBox(height: 16.h), 
+                    SizedBox(height: 16.h),
 
                     MetricCards(inputData: inputData),
 
@@ -60,7 +71,7 @@ class ResultScreen extends StatelessWidget {
                       isOutlined: true,
                       onPressed: () => context.go(Routes.healthInput),
                     ),
-                    
+
                     SizedBox(height: 16.h),
                   ],
                 ),

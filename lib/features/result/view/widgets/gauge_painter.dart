@@ -6,8 +6,13 @@ import 'package:heart_disease_prediction/core/theme/app_colors.dart';
 class GaugePainter extends CustomPainter {
   final double progress;
   final bool isHighRisk;
+  final Color trackColor;
 
-  GaugePainter({required this.progress, required this.isHighRisk});
+  GaugePainter({
+    required this.progress,
+    required this.isHighRisk,
+    required this.trackColor,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -16,7 +21,7 @@ class GaugePainter extends CustomPainter {
 
     // Background track
     final trackPaint = Paint()
-      ..color = AppColors.surfaceContainerHigh
+      ..color = trackColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = 12
       ..strokeCap = StrokeCap.round;

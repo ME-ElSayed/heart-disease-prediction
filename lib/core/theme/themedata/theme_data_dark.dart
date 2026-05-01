@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/theme/app_colors.dart';
 import 'package:heart_disease_prediction/core/theme/app_styles.dart';
@@ -52,6 +53,11 @@ ThemeData getDarkTheme() {
       elevation: 0,
       centerTitle: true,
       surfaceTintColor: Colors.transparent,
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
+      ),
       titleTextStyle: TextStyles.font20BlackSemiBold.copyWith(
         color: _DarkThemeColors.onSurface,
       ),

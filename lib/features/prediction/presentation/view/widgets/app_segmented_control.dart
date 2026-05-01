@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heart_disease_prediction/core/theme/app_colors.dart';
 import 'package:heart_disease_prediction/core/theme/app_styles.dart';
 
 class AppSegmentedControl extends StatelessWidget {
@@ -19,14 +18,22 @@ class AppSegmentedControl extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyles.font12BlackMedium),
+        Text(
+          label,
+          style: TextStyles.font12BlackMedium.copyWith(
+            color: colorScheme.onSurface,
+          ),
+        ),
         SizedBox(height: 8.h),
         Container(
           decoration: BoxDecoration(
-            color: AppColors.surfaceContainerHighest,
+            color: colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(12.r),
           ),
           padding: EdgeInsets.all(4.w),
@@ -41,14 +48,16 @@ class AppSegmentedControl extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 12.h),
                     decoration: BoxDecoration(
                       color: isSelected
-                          ? AppColors.surfaceContainerLowest
+                          ? colorScheme.surfaceContainerLowest
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(10.r),
                       boxShadow: isSelected
                           ? [
                               BoxShadow(
-                                color: AppColors.onSurface.withValues(
-                                  alpha: 0.06,
+                                color: Colors.black.withValues(
+                                  alpha: theme.brightness == Brightness.dark
+                                      ? 0.24
+                                      : 0.06,
                                 ),
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
@@ -63,9 +72,11 @@ class AppSegmentedControl extends StatelessWidget {
                           option,
                           style: isSelected
                               ? TextStyles.font14BlackMedium.copyWith(
-                                  color: AppColors.primary,
+                                  color: colorScheme.primary,
                                 )
-                              : TextStyles.font14GreyRegular,
+                              : TextStyles.font14GreyRegular.copyWith(
+                                  color: colorScheme.onSurfaceVariant,
+                                ),
                         ),
                       ),
                     ),

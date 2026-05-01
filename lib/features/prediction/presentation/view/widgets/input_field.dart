@@ -29,12 +29,7 @@ class AppInputField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: TextStyles.font12BlackMedium.copyWith(
-            color: theme.colorScheme.onSurface,
-          ),
-        ),
+        Text(label, style: TextStyles.font12BlackMedium),
         SizedBox(height: 8.h),
         TextFormField(
           controller: controller,
@@ -47,10 +42,7 @@ class AppInputField extends StatelessWidget {
           style: TextStyles.font14BlackRegular.copyWith(
             color: theme.colorScheme.onSurface,
           ),
-          decoration: InputDecoration(
-            hintText: hint,
-            suffixText: suffix,
-          ),
+          decoration: InputDecoration(hintText: hint, suffixText: suffix),
         ),
       ],
     );

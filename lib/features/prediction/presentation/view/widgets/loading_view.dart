@@ -76,8 +76,11 @@ class _LoadingViewState extends State<LoadingView>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFFAF8FF),
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 32.w),
@@ -105,7 +108,7 @@ class _LoadingViewState extends State<LoadingView>
                 style: TextStyle(
                   fontSize: 22.sp,
                   fontWeight: FontWeight.w700,
-                  color: const Color(0xFF1A0533),
+                  color: colorScheme.onSurface,
                   letterSpacing: 0.3,
                 ),
               ),
@@ -120,7 +123,7 @@ class _LoadingViewState extends State<LoadingView>
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14.sp,
-                    color: const Color(0xFF8B6FAE),
+                    color: colorScheme.onSurfaceVariant,
                     fontWeight: FontWeight.w400,
                     height: 1.5,
                   ),
@@ -205,6 +208,8 @@ class _DotsLoaderState extends State<_DotsLoader>
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(_dotCount, (i) {
@@ -218,8 +223,8 @@ class _DotsLoaderState extends State<_DotsLoader>
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color.lerp(
-                  const Color(0xFFD8C4EC),
-                  const Color(0xFF7B3FC4),
+                  colorScheme.primary.withValues(alpha: 0.25),
+                  colorScheme.primary,
                   _animations[i].value,
                 ),
               ),

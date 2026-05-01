@@ -8,6 +8,12 @@ class ThemeCubit extends HydratedCubit<ThemeMode> {
     emit(newMode);
   }
 
+  void toggleTheme(Brightness currentBrightness) {
+    emit(
+      currentBrightness == Brightness.dark ? ThemeMode.light : ThemeMode.dark,
+    );
+  }
+
   final String _jsonKey = 'themeMode';
 
   @override

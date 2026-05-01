@@ -45,16 +45,19 @@ class _RiskGaugeState extends State<RiskGauge>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final isHighRisk = widget.hasHeartDisease;
 
     return Container(
       padding: EdgeInsets.all(24.w),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerLowest,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.onSurface.withValues(alpha: 0.04),
+            color: Colors.black.withValues(
+              alpha: theme.brightness == Brightness.dark ? 0.24 : 0.04,
+            ),
             blurRadius: 40,
             offset: const Offset(0, 4),
           ),
@@ -107,7 +110,10 @@ class _RiskGaugeState extends State<RiskGauge>
                 ? 'Our AI model indicates elevated cardiovascular risk. We strongly recommend consulting with a healthcare professional.'
                 : 'Your cardiovascular risk appears to be within normal range. Continue maintaining a healthy lifestyle.',
             textAlign: TextAlign.center,
-            style: TextStyles.font18Regular.copyWith(height: 1.6),
+            style: TextStyles.font18Regular.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+              height: 1.6,
+            ),
           ),
         ],
       ),

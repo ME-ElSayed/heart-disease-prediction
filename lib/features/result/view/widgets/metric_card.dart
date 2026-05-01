@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_styles.dart';
 
 class MetricCard extends StatelessWidget {
@@ -22,14 +21,19 @@ class MetricCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerLowest,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.onSurface.withValues(alpha: 0.03),
+            color: Colors.black.withValues(
+              alpha: theme.brightness == Brightness.dark ? 0.22 : 0.03,
+            ),
             blurRadius: 20,
             offset: const Offset(0, 2),
           ),
@@ -50,17 +54,32 @@ class MetricCard extends StatelessWidget {
           SizedBox(height: 12.h),
           FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(title, style: TextStyles.font16BlackMedium),
+            child: Text(
+              title,
+              style: TextStyles.font16BlackMedium.copyWith(
+                color: colorScheme.onSurface,
+              ),
+            ),
           ),
           SizedBox(height: 4.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(value, style: TextStyles.font22BlackBold),
+              Text(
+                value,
+                style: TextStyles.font22BlackBold.copyWith(
+                  color: colorScheme.onSurface,
+                ),
+              ),
               SizedBox(width: 4.w),
               Padding(
                 padding: EdgeInsets.only(bottom: 3.h),
-                child: Text(unit, style: TextStyles.font14BlackRegular),
+                child: Text(
+                  unit,
+                  style: TextStyles.font14BlackRegular.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                  ),
+                ),
               ),
             ],
           ),

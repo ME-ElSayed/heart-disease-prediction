@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/core/helper/shared_pref_helper.dart';
-import 'package:heart_disease_prediction/core/theme/app_colors.dart';
+import 'package:heart_disease_prediction/core/theme/app_styles.dart';
+import 'package:heart_disease_prediction/core/theme/widgets/theme_toggle_button.dart';
 import 'package:heart_disease_prediction/core/widgets/app_button.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
@@ -35,8 +36,27 @@ class _HeathInputFormState extends State<HeathInputForm> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.surfaceContainerLow,
+      backgroundColor: colorScheme.surfaceContainerLow,
+      appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(
+          'Health Input',
+          style: TextStyles.font20BlackSemiBold.copyWith(
+            color: colorScheme.onPrimary,
+          ),
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: ThemeToggleButton(),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: [

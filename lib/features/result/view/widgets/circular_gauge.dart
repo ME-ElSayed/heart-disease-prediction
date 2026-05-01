@@ -16,6 +16,8 @@ class CircularGauge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
@@ -26,6 +28,7 @@ class CircularGauge extends StatelessWidget {
             painter: GaugePainter(
               progress: _animation.value,
               isHighRisk: isHighRisk,
+              trackColor: colorScheme.surfaceContainerHigh,
             ),
             child: Center(
               child: Column(
@@ -39,7 +42,12 @@ class CircularGauge extends StatelessWidget {
                           : AppColors.successGreen,
                     ),
                   ),
-                  Text('probability', style: TextStyles.font16BlackMedium),
+                  Text(
+                    'probability',
+                    style: TextStyles.font16BlackMedium.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ),
                 ],
               ),
             ),

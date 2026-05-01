@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_styles.dart';
 
 class FactorBar extends StatefulWidget {
@@ -53,6 +52,8 @@ class _FactorBarState extends State<FactorBar>
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Padding(
       padding: EdgeInsets.only(bottom: 12.h),
       child: Row(
@@ -74,8 +75,18 @@ class _FactorBarState extends State<FactorBar>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(widget.label, style: TextStyles.font16BlackMedium),
-                    Text(widget.value, style: TextStyles.font14BlackMedium),
+                    Text(
+                      widget.label,
+                      style: TextStyles.font16BlackMedium.copyWith(
+                        color: colorScheme.onSurface,
+                      ),
+                    ),
+                    Text(
+                      widget.value,
+                      style: TextStyles.font14BlackMedium.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: 6.h),
@@ -85,7 +96,7 @@ class _FactorBarState extends State<FactorBar>
                     return Container(
                       height: 6.h,
                       decoration: BoxDecoration(
-                        color: AppColors.surfaceContainerHigh,
+                        color: colorScheme.surfaceContainerHigh,
                         borderRadius: BorderRadius.circular(999),
                       ),
                       child: FractionallySizedBox(

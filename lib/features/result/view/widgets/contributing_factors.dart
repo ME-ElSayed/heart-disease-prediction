@@ -12,6 +12,9 @@ class ContributingFactors extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     // Normalise bar widths relative to the largest absolute impact.
     final maxImpact = topFeatures
         .map((f) => f.impact.abs())
@@ -20,11 +23,13 @@ class ContributingFactors extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerLowest,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.onSurface.withValues(alpha: 0.04),
+            color: Colors.black.withValues(
+              alpha: theme.brightness == Brightness.dark ? 0.24 : 0.04,
+            ),
             blurRadius: 40,
             offset: const Offset(0, 4),
           ),
@@ -38,12 +43,12 @@ class ContributingFactors extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(10.w),
                 decoration: BoxDecoration(
-                  color: AppColors.secondaryFixed,
+                  color: colorScheme.secondaryContainer,
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Icon(
                   Icons.analytics_outlined,
-                  color: AppColors.secondary,
+                  color: colorScheme.secondary,
                   size: 22.sp,
                 ),
               ),
@@ -52,7 +57,9 @@ class ContributingFactors extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 child: Text(
                   'Contributing Factors',
-                  style: TextStyles.font18BlackSemiBold,
+                  style: TextStyles.font18BlackSemiBold.copyWith(
+                    color: colorScheme.onSurface,
+                  ),
                 ),
               ),
             ],

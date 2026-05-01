@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
-import 'package:heart_disease_prediction/core/theme/app_colors.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/categorical_data_section.dart';
@@ -30,14 +29,18 @@ class HealthMetricsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerLowest,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.onSurface.withValues(alpha: 0.04),
+            color: Colors.black.withValues(
+              alpha: theme.brightness == Brightness.dark ? 0.24 : 0.04,
+            ),
             blurRadius: 40,
             offset: const Offset(0, 4),
           ),
@@ -56,8 +59,11 @@ class HealthMetricsSection extends StatelessWidget {
             oldpeakController: oldpeakController,
           ),
           SizedBox(height: 16.h),
-          CategoricalDataSection(formState: formState, cubit: cubit, showcaseKeys: showcaseKeys)
-        
+          CategoricalDataSection(
+            formState: formState,
+            cubit: cubit,
+            showcaseKeys: showcaseKeys,
+          ),
         ],
       ),
     );

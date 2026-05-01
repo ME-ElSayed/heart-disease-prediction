@@ -5,15 +5,14 @@ import 'package:heart_disease_prediction/features/guide/view/widgets/age_showcas
 import 'package:heart_disease_prediction/features/guide/view/widgets/sex_show_case.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_segmented_control.dart';
 
-import '../../../../../core/theme/app_colors.dart';
 import 'input_field.dart';
 
 class PersonalInfoSection extends StatelessWidget {
   final TextEditingController ageController;
   final String? selectedSex;
   final void Function(String) onSexChanged;
-  final GlobalKey ageKey;   //  add
-  final GlobalKey sexKey;   //  add
+  final GlobalKey ageKey; //  add
+  final GlobalKey sexKey; //  add
 
   const PersonalInfoSection({
     super.key,
@@ -26,14 +25,18 @@ class PersonalInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerLowest,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.onSurface.withValues(alpha: 0.04),
+            color: Colors.black.withValues(
+              alpha: theme.brightness == Brightness.dark ? 0.24 : 0.04,
+            ),
             blurRadius: 40,
             offset: const Offset(0, 4),
           ),
@@ -43,7 +46,6 @@ class PersonalInfoSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // ... your header row unchanged ...
-
           SizedBox(height: 20.h),
 
           //  Age field

@@ -13,6 +13,8 @@ class RecommendationsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     final recommendations = isHighRisk
         ? [
             RecommendationModel(
@@ -71,11 +73,13 @@ class RecommendationsSection extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
-        color: AppColors.surfaceContainerLowest,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.onSurface.withValues(alpha: 0.04),
+            color: Colors.black.withValues(
+              alpha: theme.brightness == Brightness.dark ? 0.24 : 0.04,
+            ),
             blurRadius: 40,
             offset: const Offset(0, 4),
           ),
@@ -89,12 +93,12 @@ class RecommendationsSection extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(10.w),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryFixed,
+                  color: colorScheme.primaryContainer,
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Icon(
                   Icons.lightbulb_outline_rounded,
-                  color: AppColors.primary,
+                  color: colorScheme.primary,
                   size: 22.sp,
                 ),
               ),
@@ -104,7 +108,9 @@ class RecommendationsSection extends StatelessWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     'Recommendations',
-                    style: TextStyles.font24BlackBold,
+                    style: TextStyles.font24BlackBold.copyWith(
+                      color: colorScheme.onSurface,
+                    ),
                   ),
                 ),
               ),

@@ -9,6 +9,8 @@ class RecommendationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Padding(
       padding: EdgeInsets.only(bottom: 16.h),
       child: Row(
@@ -30,10 +32,20 @@ class RecommendationItem extends StatelessWidget {
               children: [
                 FittedBox(
                   fit: BoxFit.scaleDown,
-                  child: Text(rec.title, style: TextStyles.font20BlackSemiBold),
+                  child: Text(
+                    rec.title,
+                    style: TextStyles.font20BlackSemiBold.copyWith(
+                      color: colorScheme.onSurface,
+                    ),
+                  ),
                 ),
                 SizedBox(height: 2.h),
-                Text(rec.description, style: TextStyles.font14GreyRegular),
+                Text(
+                  rec.description,
+                  style: TextStyles.font14GreyRegular.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                  ),
+                ),
               ],
             ),
           ),
