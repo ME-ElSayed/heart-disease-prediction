@@ -39,7 +39,6 @@ class _HeathInputFormState extends State<HeathInputForm> {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorScheme.surfaceContainerLow,
       appBar: AppBar(
         title: Text(
           'Health Input',

@@ -39,7 +39,7 @@ ThemeData getLightTheme() {
 
   return ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: AppColors.onPrimary,
+    scaffoldBackgroundColor: AppColors.inverseOnSurface,
     brightness: Brightness.light,
     colorScheme: colorScheme,
     splashFactory: InkSparkle.splashFactory,

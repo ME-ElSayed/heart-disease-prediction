@@ -28,7 +28,6 @@ class ResultScreen extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorScheme.surfaceContainerLow,
       appBar: AppBar(
         title: Text(
           'Risk Profile',

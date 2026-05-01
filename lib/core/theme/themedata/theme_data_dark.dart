@@ -48,8 +48,8 @@ ThemeData getDarkTheme() {
       displayColor: _DarkThemeColors.onSurface,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: _DarkThemeColors.surfaceContainerLow,
-      foregroundColor: _DarkThemeColors.onSurface,
+      backgroundColor: Colors.transparent,
+      foregroundColor: Colors.transparent,
       shadowColor: Colors.transparent,
       elevation: 0,
       scrolledUnderElevation: 0,
