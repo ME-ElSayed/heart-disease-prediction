@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heart_disease_prediction/core/utils/app_styles.dart';
+import 'package:heart_disease_prediction/core/theme/app_styles.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';
 

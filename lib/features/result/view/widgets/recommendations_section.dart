@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/features/result/data/model/recommendation_model.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/recommendation_item.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_styles.dart';
 
 class RecommendationsSection extends StatelessWidget {
   final bool isHighRisk;

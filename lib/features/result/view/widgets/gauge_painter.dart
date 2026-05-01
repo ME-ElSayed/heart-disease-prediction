@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:heart_disease_prediction/core/utils/app_colors.dart';
+import 'package:heart_disease_prediction/core/theme/app_colors.dart';
 
 class GaugePainter extends CustomPainter {
   final double progress;

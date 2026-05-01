@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/core/di/dependency_injection.dart';
 import 'package:heart_disease_prediction/core/routing/app_router.dart';
-import 'package:heart_disease_prediction/core/theme/theme_data_light.dart';
+import 'package:heart_disease_prediction/core/theme/themedata/theme_data_light.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

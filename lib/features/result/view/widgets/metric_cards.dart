@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heart_disease_prediction/core/utils/app_colors.dart';
+import 'package:heart_disease_prediction/core/theme/app_colors.dart';
 import 'package:heart_disease_prediction/features/prediction/data/model/prediction_input_data.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/metric_card.dart';
 

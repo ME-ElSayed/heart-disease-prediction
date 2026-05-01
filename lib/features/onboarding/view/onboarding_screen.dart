@@ -6,7 +6,7 @@ import 'package:heart_disease_prediction/core/helper/shared_pref_helper.dart';
 import 'package:heart_disease_prediction/features/onboarding/view/widgets/page_indicator.dart';
 
 import '../../../core/routing/routes.dart';
-import '../../../core/utils/app_colors.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_button.dart';
 import 'widgets/how_it_works_page.dart';
 import 'widgets/welcome_page.dart';

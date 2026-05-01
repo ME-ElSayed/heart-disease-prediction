@@ -5,7 +5,7 @@ import 'package:heart_disease_prediction/features/result/view/widgets/contributi
 import 'package:heart_disease_prediction/features/result/view/widgets/metric_cards.dart';
 
 import '../../../core/routing/routes.dart';
-import '../../../core/utils/app_colors.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_button.dart';
 import '../../prediction/data/model/predict_response.dart';
 import '../../prediction/data/model/prediction_input_data.dart';

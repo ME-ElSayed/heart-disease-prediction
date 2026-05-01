@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/circular_gauge.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_styles.dart';
 
 class RiskGauge extends StatefulWidget {
   final double probability;

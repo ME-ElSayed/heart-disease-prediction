@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:heart_disease_prediction/core/helper/form_showcase_keys.dart';
 import 'package:heart_disease_prediction/core/helper/shared_pref_helper.dart';
-import 'package:heart_disease_prediction/core/utils/app_colors.dart';
+import 'package:heart_disease_prediction/core/theme/app_colors.dart';
 import 'package:heart_disease_prediction/core/widgets/app_button.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_cubit.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/cubits/healthInput/health_input_state.dart';

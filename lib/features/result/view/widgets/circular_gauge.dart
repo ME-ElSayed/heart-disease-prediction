@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:heart_disease_prediction/core/utils/app_colors.dart';
-import 'package:heart_disease_prediction/core/utils/app_styles.dart';
+import 'package:heart_disease_prediction/core/theme/app_colors.dart';
+import 'package:heart_disease_prediction/core/theme/app_styles.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/gauge_painter.dart';
 
 class CircularGauge extends StatelessWidget {

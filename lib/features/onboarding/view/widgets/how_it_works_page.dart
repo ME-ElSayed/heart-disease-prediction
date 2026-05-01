@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:heart_disease_prediction/features/onboarding/view/widgets/step_card.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_styles.dart';
 
 class HowItWorksPage extends StatelessWidget {
   const HowItWorksPage({super.key});

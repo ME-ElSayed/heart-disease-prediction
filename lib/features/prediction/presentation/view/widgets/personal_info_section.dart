@@ -5,7 +5,7 @@ import 'package:heart_disease_prediction/features/guide/view/widgets/age_showcas
 import 'package:heart_disease_prediction/features/guide/view/widgets/sex_show_case.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_segmented_control.dart';
 
-import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/theme/app_colors.dart';
 import 'input_field.dart';
 
 class PersonalInfoSection extends StatelessWidget {

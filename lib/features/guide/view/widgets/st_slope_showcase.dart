@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:heart_disease_prediction/core/utils/app_styles.dart';
+import 'package:heart_disease_prediction/core/theme/app_styles.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 class StSlopeShowcase extends StatelessWidget {
