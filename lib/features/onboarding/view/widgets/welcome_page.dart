@@ -37,7 +37,9 @@ class WelcomePage extends StatelessWidget {
               children: [
                 TextSpan(
                   text: 'Predict Heart\n Disease ',
-                  style: TextStyles.font40BlackExtraBold,
+                  style: TextStyles.font40BlackExtraBold.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
                 TextSpan(
                   text: 'Early',
