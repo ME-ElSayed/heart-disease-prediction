@@ -178,16 +178,18 @@ ThemeData getDarkTheme() {
         }
         return _DarkThemeColors.surfaceContainerHighest;
       }),
-      trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
+      trackOutlineColor: const WidgetStatePropertyAll(_DarkThemeColors.outline),
     ),
 
     // Slider
     sliderTheme: SliderThemeData(
       activeTrackColor: AppColors.primary,
-      inactiveTrackColor: _DarkThemeColors.surfaceContainerHighest,
+      inactiveTrackColor: _DarkThemeColors.onSurfaceVariant,
       thumbColor: AppColors.primary,
       overlayColor: AppColors.primary.withValues(alpha: 0.16),
-      trackHeight: 4,
+      trackHeight: 15.h,
+      activeTickMarkColor: _DarkThemeColors.primaryContainer,
+      inactiveTickMarkColor: _DarkThemeColors.secondaryContainer,
       valueIndicatorColor: AppColors.primary,
       valueIndicatorTextStyle: TextStyles.font12WhiteMedium,
     ),
