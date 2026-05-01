@@ -48,8 +48,10 @@ ThemeData getLightTheme() {
       displayColor: AppColors.onSurface,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.surface,
+      backgroundColor: Colors.transparent,
       foregroundColor: AppColors.onSurface,
+      shadowColor: Colors.transparent,
+      scrolledUnderElevation: 0,
       elevation: 0,
       centerTitle: true,
       surfaceTintColor: Colors.transparent,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:heart_disease_prediction/core/theme/app_styles.dart';
 import 'package:heart_disease_prediction/core/theme/widgets/theme_toggle_button.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/contributing_factors.dart';
 import 'package:heart_disease_prediction/features/result/view/widgets/metric_cards.dart';
@@ -29,7 +30,12 @@ class ResultScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorScheme.surfaceContainerLow,
       appBar: AppBar(
-        title: const Text('Risk Profile'),
+        title: Text(
+          'Risk Profile',
+          style: TextStyles.font20BlackSemiBold.copyWith(
+            color: colorScheme.onSurface,
+          ),
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 8),
@@ -37,6 +43,7 @@ class ResultScreen extends StatelessWidget {
           ),
         ],
       ),
+
       body: SafeArea(
         child: Column(
           children: [

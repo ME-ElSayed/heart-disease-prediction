@@ -41,11 +41,6 @@ class _HeathInputFormState extends State<HeathInputForm> {
     return Scaffold(
       backgroundColor: colorScheme.surfaceContainerLow,
       appBar: AppBar(
-        forceMaterialTransparency: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        surfaceTintColor: Colors.transparent,
         title: Text(
           'Health Input',
           style: TextStyles.font20BlackSemiBold.copyWith(
