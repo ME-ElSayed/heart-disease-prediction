@@ -94,7 +94,7 @@ ThemeData getDarkTheme() {
       fillColor: _DarkThemeColors.surfaceContainerHigh,
       errorMaxLines: 2,
       hintStyle: TextStyles.font14GreyRegular.copyWith(
-        color: _DarkThemeColors.onSurfaceVariant,
+        color: _DarkThemeColors.outline,
       ),
       errorStyle: TextStyles.font12GreyRegular.copyWith(
         color: _DarkThemeColors.onErrorContainer,
