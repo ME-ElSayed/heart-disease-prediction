@@ -4,6 +4,7 @@ import 'package:heart_disease_prediction/core/helper/app_validator.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/age_showcase.dart';
 import 'package:heart_disease_prediction/features/guide/view/widgets/sex_show_case.dart';
 import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/app_segmented_control.dart';
+import 'package:heart_disease_prediction/features/prediction/presentation/view/widgets/section_header.dart';
 
 import 'input_field.dart';
 
@@ -46,6 +47,10 @@ class PersonalInfoSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // ... your header row unchanged ...
+          SectionHeader(
+            content: "Personal Information",
+            icon: Icons.person_outlined,
+          ),
           SizedBox(height: 20.h),
 
           //  Age field

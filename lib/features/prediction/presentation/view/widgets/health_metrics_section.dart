@@ -49,7 +49,10 @@ class HealthMetricsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SectionHeader(),
+          SectionHeader(
+            content: "Health Metrics",
+            icon: Icons.monitor_heart_outlined,
+          ),
           SizedBox(height: 20.h),
           NumericMedicalDataSection(
             showcaseKeys: showcaseKeys,
