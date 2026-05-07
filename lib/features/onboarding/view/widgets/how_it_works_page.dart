@@ -34,7 +34,7 @@ class HowItWorksPage extends StatelessWidget {
               stepNumber: '01',
               icon: Icons.edit_note_rounded,
               iconColor: AppColors.primary,
-              iconBgColor: AppColors.primaryFixed,
+              iconBgColor: AppColors.secondaryFixed,
               title: 'Input Your Data',
               description:
                   'Enter your health metrics including blood pressure, cholesterol levels, and other vital information.',

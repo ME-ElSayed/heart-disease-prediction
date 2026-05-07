@@ -21,7 +21,6 @@ class WelcomePage extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(40),
-              color: Colors.amber,
               image: DecorationImage(
                 image: AssetImage(AppImages.heart),
                 fit: BoxFit.fill,
