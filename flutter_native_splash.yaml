@@ -3,8 +3,13 @@ flutter_native_splash:
   ios: true
   web: true
   color: "#ffffff"
+  color_dark: "#000000"
   image:  assets/images/heart_splash.png
+  image_dark: assets/images/heart_splash_dark.png
+  icon_background_color_dark: "#000000"
   android_12:
     image: assets/images/heart_splash.png
+    image_dark: assets/images/heart_splash_dark.png
+    icon_background_color_dark: "#000000"
     color: "#ffffff"
     
